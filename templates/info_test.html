@@ -1,0 +1,63 @@
+<!--开发测试用-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+</head>
+<body>
+    <form action="/add_test" method="get">
+        {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+        <input type="submit" value="新增">
+    </form>
+
+    <form action="/search_test1" method="post">
+        {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+        <!--<input type="text" name="condition1" >-->
+        <input type="text" name="condition2">
+        <input type="text" name="info">
+
+        <input type="submit" value="查询">
+    </form>
+
+    <form action="/remove_test2" method="post">
+        {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+        <!--<input type="text" name="condition1" >-->
+        <input type="text" name="customerID" value= 201904250006>
+
+        <input type="submit" value="批量删除">
+    </form>
+
+     {% for customer in customer_list %}
+        <p>{{ customer.name }}
+            {{ customer.sex }}
+            {{ customer.nation }}
+            {{ customer.customerID }}
+            {{customer.check_in_date}}
+        </p>
+        <form action="/search_test3" method="post">
+            {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+            <!--<input type="text" name="condition1" >-->
+            <input type="text" name="customerID" value={{customer.customerID}}>
+            <input type="submit" value="详细">
+         </form>
+
+        <form action="/modify_test" method="post">
+            {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+            <!--<input type="text" name="condition1" >-->
+            <input type="text" name="customerID" value={{customer.customerID}}>
+            <input type="submit" value="修改">
+         </form>
+
+        <form action="/remove_test1" method="post">
+            {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+            <!--<input type="text" name="condition1" >-->
+            <input type="text" name="customerID" value={{customer.customerID}}>
+            <input type="submit" value="删除">
+         </form>
+
+    {% endfor %}
+
+
+</body>
+</html>

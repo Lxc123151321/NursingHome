@@ -1,0 +1,67 @@
+<!--开发测试用-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改信息</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改信息</title>
+</head>
+<body>
+
+        <form action="/modify_test1" method="post">
+            {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+            <!--<input type="text" name="condition1" >-->
+            <input type="text" name="name" value= 力哥名字>
+            <input type="text" name="sex" value= 力哥性别>
+            <input type="text" name="nation" value= 力哥民族>
+            {%for customer in customer_list %}
+              <p> {{ customer.name }}
+                  {{ customer.sex }}
+                  {{ customer.nation }}
+                  {{ customer.customerID }}
+                  {{ customer.check_in_date}}
+                </p>
+                <input type="text" name="customerID" value= {{customer.customerID}}>
+            {% endfor %}
+
+            <input type="submit" value="确认修改">
+         </form>
+
+
+        客户基本信息模块
+
+
+
+
+        客户床位信息模块
+
+        {% for customer in customer_list %}
+        <p>{{ customer.name }}
+            {{ customer.sex }}
+            {{ customer.nation }}
+            {{ customer.customerID }}
+            {{ customer.check_in_date}}
+        </p>
+        {% endfor %}
+
+        客户护工信息模块
+        {% for customer in customer_list %}
+        <p>{{ customer.name }}
+            {{ customer.sex }}
+            {{ customer.nation }}
+            {{ customer.customerID }}
+            {{ customer.check_in_date}}
+        </p>
+        {% endfor %}
+</body>
+</html>

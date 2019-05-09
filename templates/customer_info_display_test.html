@@ -1,0 +1,41 @@
+<!--开发测试用-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>展示信息</title>
+</head>
+<body>
+        客户基本信息模块
+
+        {% for customer in customer_list %}
+        <p>{{ customer.name }}
+            {{ customer.sex }}
+            {{ customer.nation }}
+            {{ customer.customerID }}
+            {{ customer.check_in_date}}
+        </p>
+
+        {% endfor %}
+        客户床位信息模块
+
+        {% for customer in customer_list %}
+        <p>{{ customer.name }}
+            {{ customer.sex }}
+            {{ customer.nation }}
+            {{ customer.customerID }}
+            {{ customer.check_in_date}}
+        </p>
+        {% endfor %}
+
+        客户护工信息模块
+        {% for customer in customer_list %}
+        <p>{{ customer.name }}
+            {{ customer.sex }}
+            {{ customer.nation }}
+            {{ customer.customerID }}
+            {{ customer.check_in_date}}
+        </p>
+        {% endfor %}
+</body>
+</html>

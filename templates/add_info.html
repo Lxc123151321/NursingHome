@@ -1,0 +1,38 @@
+<!--开发用-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>添加一名用户信息页面</title>
+</head>
+<body>
+    <form action="/add" method="post">
+        {% csrf_token %}
+        <p>姓名</p>
+        <input type="text" name="name">
+         <p>性别</p>
+        <input type="text" name="sex">
+         <p>年龄</p>
+        <input type="text" name="age">
+         <p>民族</p>
+        <input type="text" name="nation">
+         <p>身份证号</p>
+        <input type="text" name="ID_number">
+         <p>出生日期</p>
+        <input type="date" name="birthdate">
+         <p>省</p>
+        <input type="text" name="province">
+         <p>身高</p>
+        <input type="text" name="height">
+         <p>联系电话</p>
+        <input type="text" name="phone1num1">
+         <p>入住时间</p>
+        <input type="date" name="check_in_date">
+         <p>在院状态</p>
+        <input type="text" name="state_1">
+
+        <input type="submit" value="提交">
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!--手工办理页面-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手工办理</title>
+</head>
+<body>
+     <form action="/co_add" method="post">
+        {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+         <input type="text" name="customerID">
+         <input type="text" name="check_out_type">
+         <input type="text" name="check_out_reason">
+         <input type="text" name="check_out_time">
+         <input type="text" name="remark">
+
+        <input type="submit" value="提交">
+    </form>
+    <form action="/check_out_2" method="get">
+        {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+        <input type="submit" value="返回">
+    </form>
+</body>
+</html>

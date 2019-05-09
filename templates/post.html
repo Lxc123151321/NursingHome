@@ -1,0 +1,17 @@
+<!--学习测试用-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+</head>
+<body>
+    <form action="/search_post" method="post">
+        {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+        <input type="text" name="name">
+        <input type="submit" value="提交">
+    </form>
+    <p>{{ rlt }}</p>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!--开发测试用-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>添加一名用户信息页面</title>
+</head>
+<body>
+    <form action="/add_test" method="post">
+        {% csrf_token %}
+        <p>姓名</p>
+        <input type="text" name="name">
+         <p>性别</p>
+        <input type="text" name="sex">
+         <p>民族</p>
+        <input type="text" name="nation">
+
+        <input type="submit" value="提交">
+    </form>
+
+</body>
+</html>

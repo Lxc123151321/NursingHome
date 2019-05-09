@@ -1,0 +1,28 @@
+<!--退住信息办理的初始页面-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>退住信息办理方式选择</title>
+</head>
+<body>
+    <form action="/check_out_21" method="get">
+        {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+        <input type="submit" value="手工办理">
+    </form>
+
+    <form action="/check_out_22" method="get">
+        {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+        <!--<input type="text" name="condition1" >-->
+        <input type="submit" value="文件导入">
+    </form>
+
+    <form action="/" method="get">
+        {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+        <!--<input type="text" name="condition1" >-->
+        <input type="submit" value="返回">
+    </form>
+
+</body>
+</html>

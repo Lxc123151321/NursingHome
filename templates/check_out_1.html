@@ -1,0 +1,96 @@
+<!--退住信息查询办理的初始页面-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>退住信息查询/处理</title>
+</head>
+<body>
+
+    <form action="/check_out_2" method="get">
+        {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+        <input type="submit" value="前往退住办理">
+    </form>
+
+    <form action="/co_search" method="post">
+        {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+        <!--<input type="text" name="condition1" >-->
+        <input type="text" name="customerID" value = '201904261409'>
+        <input type="text" name="check_out_type" value = 'sad'>
+
+        <input type="submit" value="查询">
+    </form>
+
+    <form action="/" method="post">
+        {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+        <!--<input type="text" name="condition1" >-->
+        <input type="text" name="customerID" >
+
+        <input type="submit" value="批量删除">
+    </form>
+
+    <form action="/" method="post">
+        {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+        <!--<input type="text" name="condition1" >-->
+        <input type="text" name="customerID" >
+
+        <input type="submit" value="批量审核">
+    </form>
+
+    <form action="/" method="post">
+        {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+        <!--<input type="text" name="condition1" >-->
+        <input type="text" name="customerID" >
+
+        <input type="submit" value="批量修改">
+    </form>
+
+     <form action="/" method="post">
+        {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+        <!--<input type="text" name="condition1" >-->
+        <input type="text" name="customerID" >
+
+        <input type="submit" value="批量打印">
+    </form>
+    {% for check_out in check_out_list %}
+        <p>{{ check.customerID }}
+            {{ check_out.check_out_type }}
+            {{ check_out.check_out_reason }}
+            {{ check_out.check_out_time }}
+            {{ check_out.remark}}
+            {{ check_out.time}}
+            {{check_out.check_out_state}}
+        </p>
+         <form action="/co_modify1" method="post">
+            {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+            <!--<input type="text" name="condition1" >-->
+            <input type="text" name="customerID" value={{check_out.customerID}}>
+             <input type="text" name="new_check_out_reason" value='Lxc123151321'>
+            <input type="submit" value="修改">
+         </form>
+
+        <form action="/co_remove1" method="post">
+            {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+            <!--<input type="text" name="condition1" >-->
+            <input type="text" name="customerID" value={{check_out.customerID}}>
+            <input type="submit" value="删除">
+         </form>
+
+        <form action="/co_verify1" method="post">
+            {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+            <!--<input type="text" name="condition1" >-->
+            <input type="text" name="customerID" value={{check_out.customerID}}>
+            <input type="submit" value="审核">
+         </form>
+
+        <form action="/" method="post">
+            {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+            <!--<input type="text" name="condition1" >-->
+            <input type="text" name="customerID" value={{customer.customerID}}>
+            <input type="submit" value="打印">
+         </form>
+        {% endfor %}
+
+</body>
+</html>

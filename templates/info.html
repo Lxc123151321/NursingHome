@@ -1,0 +1,33 @@
+<!--开发测试用-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+</head>
+<body>
+    <form action="/add_info" method="get">
+        {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+        <input type="submit" value="新增">
+    </form>
+
+    <form action="/search_info" method="get">
+        {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+        <input type="submit" value="查询">
+    </form>
+
+    <form action="/modify_info" method="get">
+        {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+        <input type="submit" value="修改">
+    </form>
+
+    <form action="/delete_info" method="get">
+        {% csrf_token %}   <!--Cross Site Request Forgery,防止伪装提交请求-->
+        <input type="submit" value="删除">
+    </form>
+
+</body>
+</html>
+
+<!--Cross Site Request Forgery,防止伪装提交请求-->
